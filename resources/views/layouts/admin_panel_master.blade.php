@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/unicode.css') }}">
+    @yield('css')
+    @yield('style')
 </head>
 <body>
 
@@ -17,11 +19,11 @@
                 <div>
                     <h3 class="py-2 px-3 d-none d-md-block text-white text-center">Admin Panel</h3>
                     <ul class="list-group px-1 px-md-3 pt-5 pt-md-0">
-                        <a href="/admin-panel" class="list-group-item list-group-item-action">
+                        <a href="{{ route("admin_panel") }}" class="list-group-item list-group-item-action">
                             <i class="fas fa-list"></i>
                             <span class="d-none d-md-inline">Categories</span>
                         </a>
-                        <a href="admin_panel_articles.php" class="list-group-item list-group-item-action">
+                        <a href="{{ route("admin_panel.articles") }}" class="list-group-item list-group-item-action">
                             <i class="fas fa-pen-square"></i>
                             <span class="d-none d-md-inline">Articles</span>
                         </a>
@@ -57,7 +59,6 @@
     </div>
     
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     @yield("script")
 </body>
 </html>

@@ -15,14 +15,14 @@
         </form>
 
         <?php if (isset($category) && $category != "") : ?>
-            <form class="py-2 d-flex align-items-center" action="/admin-panel/update/{{ $category->id }}" method="POST">
+            <form class="py-2 d-flex align-items-center" action="/admin-panel/categories/update/{{ $category->id }}" method="POST">
                 @csrf
                 <input class="form-control w-25" type="text" name="category_name" placeholder="Category Name" value="{{ $category->name }}">
                 <button class="btn btn-primary ms-1">Submit</button>
             </form>
         <?php endif; ?>
 
-        @if (session('error'))
+        @if(isset($error))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>Something Wrong!</strong> Please try again.
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -53,9 +53,9 @@
                         <td><?= $category->name ?></td>
                         <td><?= $postCount ?></td>
                         <td>
-                            <a class="btn btn-primary"><i class="fas fa-eye"></i></a>
-                            <a href="/admin-panel/<?= $category->id ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                            <a href="/admin-panel/delete/{{ $category->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a href="/admin-panel/categories/{{ $category->id }}/articles" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                            <a href="/admin-panel/categories/<?= $category->id ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                            <a href="/admin-panel/categories/delete/{{ $category->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -3,7 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,10 +38,21 @@ Route::post('/new-user', [RegisterController::class, "register"])->name("registe
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin-panel/{id?}', [CategoryController::class, "getAll"])->name("admin-panel");
-    Route::post('/admin-panel', [CategoryController::class, "create"]);
-    Route::post('/admin-panel/update/{id}', [CategoryController::class, "update"]);
-    Route::get('/admin-panel/delete/{id}', [CategoryController::class, "delete"]);
+    Route::get('/admin-panel', [CategoryController::class, "getAll"]);
+    Route::get('/admin-panel/categories/{id?}', [CategoryController::class, "getAll"])->name("admin_panel");
+    Route::post('/admin-panel/categories', [CategoryController::class, "create"]);
+    Route::post('/admin-panel/categories/update/{id}', [CategoryController::class, "update"]);
+    Route::get('/admin-panel/categories/delete/{id}', [CategoryController::class, "delete"]);
+
+    Route::get('/admin-panel/categories/{id}/articles', [CategoryController::class, "getByCategory"]);
+    Route::post('/admin-panel/categories/{id}/articles', [PostController::class, "create"]);
+
+    Route::get('/admin-panel/articles', [PostController::class, "getAll"])->name("admin_panel.articles");
+    Route::post('/admin-panel/articles', [PostController::class, "create"]);
+    Route::post('/ckeditor/upload', [CkeditorController::class, "upload"])->name('ckeditor.upload');
+    Route::get('/admin-panel/articles/{id}', [PostController::class, "get"]);
+    Route::post('/admin-panel/articles/{id}', [PostController::class, "update"]);
+    Route::post('/admin-panel/articles/delete/{id}', [PostController::class, "delete"])->name('article.delete');
 });
 
 Auth::routes(

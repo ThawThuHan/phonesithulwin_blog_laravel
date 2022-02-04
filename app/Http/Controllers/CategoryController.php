@@ -15,7 +15,14 @@ class CategoryController extends Controller
             $category = Category::find($id);
         }
         $data = Category::all();
-        return view('admin_panel.admin_panel', ["categories" => $data, "category" => $category,]);
+        return view('admin_panel.categories', ["categories" => $data, "category" => $category,]);
+    }
+
+    public function getByCategory($id)
+    {
+        $category = Category::find($id);
+        $posts = $category->posts;
+        return view('admin_panel.articles', ["posts" => $posts, "category" => $category]);
     }
 
     public function create(Request $request)
@@ -28,9 +35,9 @@ class CategoryController extends Controller
             $category = new Category();
             $category->name = $request->category_name;
             $category->save();
-            return redirect()->route('admin-panel');
+            return redirect()->route('admin_panel');
         } else {
-            return redirect()->route('admin-panel')->with('error');
+            return redirect()->route('admin_panel')->with('error');
         }
     }
 
@@ -44,12 +51,12 @@ class CategoryController extends Controller
             $category->name = $request->category_name;
             $result = $category->update();
             if ($result) {
-                return redirect()->route('admin-panel');
+                return redirect()->route('admin_panel');
             } else {
-                return redirect()->route('admin-panel')->with('error');
+                return back()->with('error');
             }
         } else {
-            return redirect()->route('admin-panel')->with('error');
+            return back()->with('error');
         }
     }
 

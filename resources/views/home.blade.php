@@ -147,6 +147,10 @@
     <h2 class="mb-4 sub-title">Recent Posts</h2>
     <div class="row mb-0 mb-md-4">
         @foreach ($recentPosts as $post)
+            <?php
+            $content = str_replace("\"", "\\\"", $post->content);
+            $content = strip_tags($content);
+            ?>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
                 <a href="blog.php" class="text-decoration-none text-dark blog">
                     <div class="card blogShadow">
@@ -157,7 +161,7 @@
                             <br>
                             <br>
                             <p class="card-text">
-                                {{ $post->content }}
+                                {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
                             </p>
                             <span>{{ $post->created_at }}</span>
                             <a href="blog.php" class="btn btn-info float-end text-white">Read more</a>

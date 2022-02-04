@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string("category_id");
             $table->string("image");
             $table->text("content");
-            $table->integer("view_count");
+            $table->integer("view_count")->default(0);
             $table->boolean("premium")->default(false);
             $table->timestamps();
         });
