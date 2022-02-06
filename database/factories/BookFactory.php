@@ -17,7 +17,7 @@ class BookFactory extends Factory
         for ($i = 0; $i < 3; $i++) {
             array_push($image_list, $this->faker->image("public/storage/book_images/", fullPath: false));
         }
-        $images = implode(", ", $image_list);
+        $images = json_encode($image_list);
         return [
             "name" => $this->faker->word,
             "preview_content" => $this->faker->paragraph,

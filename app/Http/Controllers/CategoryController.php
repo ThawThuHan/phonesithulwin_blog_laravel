@@ -18,7 +18,7 @@ class CategoryController extends Controller
         return view('admin_panel.categories', ["categories" => $data, "category" => $category,]);
     }
 
-    public function getByCategory($id)
+    public function getPostByCategory($id)
     {
         $category = Category::find($id);
         $posts = $category->posts;

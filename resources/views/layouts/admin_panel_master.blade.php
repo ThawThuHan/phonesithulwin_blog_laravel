@@ -27,7 +27,7 @@
                             <i class="fas fa-pen-square"></i>
                             <span class="d-none d-md-inline">Articles</span>
                         </a>
-                        <a href="admin_panel_books.php" class="list-group-item list-group-item-action">
+                        <a href="{{ route("admin_panel.books") }}" class="list-group-item list-group-item-action">
                             <i class="fas fa-book-medical"></i>
                             <span class="d-none d-md-inline">Books</span>
                         </a>

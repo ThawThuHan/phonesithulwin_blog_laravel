@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string("preview_content");
             $table->text("images");
             $table->integer("price");
-            $table->integer("order_count");
+            $table->integer("order_count")->default(0);
             $table->date("release_date");
             $table->string("features");
             $table->timestamps();

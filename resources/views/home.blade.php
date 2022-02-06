@@ -1,5 +1,7 @@
 @extends('layouts/master')
 
+@section('title', 'Home')
+
 @section('css')
     <link rel="stylesheet" href="{{URL::asset("css/index.css")}}">
 @endsection

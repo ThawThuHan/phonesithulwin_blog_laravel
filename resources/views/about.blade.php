@@ -1,4 +1,7 @@
 @extends('layouts/master')
+
+@section('title', 'About')
+
 @section('css')
     <link rel="stylesheet" href="css/about.css">
 @endsection
