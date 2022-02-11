@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 use Exception;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\FuncCall;
 
 class PostController extends Controller
 {
@@ -21,7 +20,17 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::all();
-        return view("admin_panel.show_article", ["post" => $post, "categories" => $categories]);
+        // $previous_route = url()->previous();
+        // dd($previous_route);
+        $previous_route = app('router')->getRoutes()->match(app('request')->create(url()->previous()))->getName();
+        return view(
+            "admin_panel.show_article",
+            [
+                "post" => $post,
+                "categories" => $categories,
+                "previous_route" => $previous_route
+            ]
+        );
     }
 
     public function create(Request $request)
@@ -69,10 +78,18 @@ class PostController extends Controller
         return redirect()->back()->with("success", "true");
     }
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
+        // dd($request->previous_route);
         $post = Post::find($id);
-        $post->delete();
-        return redirect()->route('admin_panel.articles')->with('info', "Post Deleted!");
+        $previous_route = $request->previous_route;
+        // $post->delete();
+        // return redirect()->back()->with('info', "Post Deleted!");
+        if ($previous_route == "admin_panel.articles") {
+            return redirect()->route('admin_panel.articles')->with('info', "Post Deleted!");
+        } else {
+            // return redirect("/admin-panel/categories/$post->category_id/articles")->with('info', "Post Deleted!");
+            return redirect()->route('admin_panel.category.articles', ['id' => $post->category_id])->with('info', "Post Deleted!");
+        }
     }
 }

@@ -45,8 +45,10 @@
                         Delete
                     </a>
                 </form>
-                <form id="delete" action="{{ route('article.delete', ['id' => $post->id]) }}" method="POST">
+                <form id="delete" action="{{ route('article.delete', ['id' => $post->id]) }}" method="post">
                     @csrf
+                    @method('delete')
+                    <input type="hidden" name="previous_route" value="{{$previous_route}}">
                 </form>
             </div>
 </div>

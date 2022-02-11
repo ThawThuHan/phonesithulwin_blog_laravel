@@ -260,9 +260,9 @@
         <div class="row">
             <?php foreach ($books as $book) : ?>
                 <?php
-                $images = explode(", ", $book->images);
+                $images = json_decode($book->images);
                 ?>
-                <div onclick="location.href='book_order.php?id=<?= $book->id ?>'" class="col-12 col-md-6">
+                <div onclick="location.href='/book/{{ $book->id }}/order'" class="col-12 col-md-6">
                     <div class="card mb-3 mx-3 blogShadow">
                         <div class="row g-0">
                             <div class="col-md-4 book">
@@ -276,7 +276,7 @@
                                         <?= $book->preview_content ?>
                                     </p>
                                     <span class="float-start my-3 text-danger"><?= $book->price ?></span>
-                                    <a href="book_order.php?id=<?= $book->id ?>" class="btn btn-info float-end text-white my-2">Order Now</a>
+                                    <a href="/book/<?= $book->id ?>/order" class="btn btn-info float-end text-white my-2">Order Now</a>
                                 </div>
                             </div>
                         </div>

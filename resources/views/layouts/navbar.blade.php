@@ -6,7 +6,7 @@
 
         <!-- logo -->
         <a class="navbar-brand ms-5" href="index.php">
-            <img src="assets/images/logo.jpg" alt="" id="logo">
+            <img src="{{ asset("assets/images/logo.jpg") }}" alt="" id="logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- darkLight toggle -->

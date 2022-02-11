@@ -13,6 +13,10 @@
 </head>
 <body>
 
+    @php
+        $orders = App\Models\Order::all();
+    @endphp
+
     <div class="row g-0">
         <div class="col-2" style="background-color: darkslateblue;">
             <div class="sticky-top d-flex flex-column justify-content-between" style="height: 100vh;">
@@ -31,9 +35,10 @@
                             <i class="fas fa-book-medical"></i>
                             <span class="d-none d-md-inline">Books</span>
                         </a>
-                        <a class="list-group-item list-group-item-action">
+                        <a href="{{ route("admin_panel.orders") }}" class="list-group-item list-group-item-action">
                             <i class="fas fa-cart-plus"></i>
                             <span class="d-none d-md-inline">Orders</span>
+                            <span class="badge rounded-pill bg-danger float-end">{{ count($orders) }}</span>
                         </a>
                         <a href="admin_panel_users.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>

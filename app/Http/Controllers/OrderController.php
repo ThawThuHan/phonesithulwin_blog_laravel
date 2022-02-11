@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Mail\OrderConfimMail;
+use App\Models\Book;
+use App\Models\Order;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
+class OrderController extends Controller
+{
+    public function index($id)
+    {
+        $book = Book::find($id);
+        return view('book_order', ['book' => $book]);
+    }
+
+    public function create(Request $request)
+    {
+        $validate = $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "phone" => "required",
+            "address" => "required",
+            "quantity" => "required",
+            "book_id" => "required",
+            "payment_screenshot" => "required",
+        ]);
+
+        if (!$validate) return redirect()->withErrors($validate);
+
+        $order = new Order();
+        $order->name = $request->name;
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->address = $request->address;
+        $order->quantity = $request->quantity;
+        $order->book_id = $request->book_id;
+        if ($request->hasFile('payment_screenshot')) {
+            $filename = $request->file('payment_screenshot')->getClientOriginalName();
+            try {
+                $request->file('payment_screenshot')->move('storage/payment_screenshot', $filename);
+                $order->payment_screenshot = $filename;
+            } catch (Exception $th) {
+                dd($th);
+                return redirect()->back()->with('error', "Order uncomplete! Re-order now.");
+            }
+        } else {
+            return redirect()->back()->with('error', 'Order uncomplete! Re-order now.');
+        }
+
+        $order->save();
+        return redirect()->back()->with('success', "Complete Order Successful, We'll reply back soon!");
+    }
+
+    public function getAll()
+    {
+        $orders = Order::all();
+        return view('admin_panel.orders', ["orders" => $orders]);
+    }
+
+    public function confirm($id)
+    {
+        $order = Order::find($id);
+        $order->confirm = true;
+        $order->save();
+        Mail::to("$order->email")->send(new OrderConfimMail($order));
+        return back();
+    }
+}

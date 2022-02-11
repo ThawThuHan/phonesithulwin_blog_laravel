@@ -36,9 +36,7 @@
             up.style.display = "none"
           }
         }
-
-        @yield("script")
     </script>
-    
+    @yield("script")
 </body>
 </html>
