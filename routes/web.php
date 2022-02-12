@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/posts/{id}', [HomeController::class, 'post']);
 
 Route::get('/about', fn () => view('about'));
 
@@ -68,6 +69,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin-panel/orders', [OrderController::class, "getAll"])->name('admin_panel.orders');
     Route::get('/admin-panel/orders/{id}/confirm', [OrderController::class, "confirm"]);
+    Route::post('/admin-panel/orders/{id}/confirm', [OrderController::class, "cancel"]);
 });
 
 Auth::routes(

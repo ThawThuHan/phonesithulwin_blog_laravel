@@ -154,7 +154,7 @@
             $content = strip_tags($content);
             ?>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <a href="blog.php" class="text-decoration-none text-dark blog">
+                <a href="/posts/{{ $post->id }}" class="text-decoration-none text-dark blog">
                     <div class="card blogShadow">
                         <img src="{{ URL("storage/post_images/".$post->image) }}" class="card-img-top" alt="...">
                         <div class="card-body border-bottom">
@@ -166,7 +166,7 @@
                                 {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
                             </p>
                             <span>{{ $post->created_at }}</span>
-                            <a href="blog.php" class="btn btn-info float-end text-white">Read more</a>
+                            <a href="/posts/{{ $post->id }}" class="btn btn-info float-end text-white">Read more</a>
                         </div>
                     </div>
                 </a>

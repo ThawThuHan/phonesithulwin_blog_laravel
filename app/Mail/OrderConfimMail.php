@@ -10,17 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class OrderConfimMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $order;
+    public $details;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($details)
     {
-        $this->order = $order;
+        $this->details = $details;
     }
 
     /**

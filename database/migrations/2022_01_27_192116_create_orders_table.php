@@ -19,10 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('address');
-            $table->integer('quantity');
             $table->string('payment_screenshot');
             $table->integer('book_id');
-            $table->boolean('confirm')->default(false);
+            $table->boolean('confirm')->nullable();
             $table->timestamps();
         });
     }

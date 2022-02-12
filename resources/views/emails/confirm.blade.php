@@ -7,7 +7,7 @@
     <title>Order Confirm</title>
 </head>
 <body>
-    <h1>Order Confirmed!</h1>
-    <p>Hey {{ $order->name }}! We've got your order! We'll send your order from delievery. Thanks for supporting me.</p>
+    <h1>{{ $details['title'] }}</h1>
+    <p>{{ $details['message'] }}</p>
 </body>
 </html>

@@ -187,13 +187,13 @@
             </div>
         </div>
         <input type="hidden" name="book_id" id="book_id" value="{{ $book->id }}">
-        <div class="form-group mb-3">
+        {{-- <div class="form-group mb-3">
             <label for="validationCustom03" class="form-label">Quantity:</label>
             <input type="number" class="form-control" name="quantity" id="validationCustom03" value="1" min="1" required placeholder="Number of books">
             <div class="invalid-feedback">
                 Quantity is required!
             </div>
-        </div>
+        </div> --}}
         <div class="form-group mb-3">
             <label for="validationCustom04" class="form-label">Payment Method:</label>
             <div class="ms-3">

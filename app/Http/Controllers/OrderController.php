@@ -24,7 +24,6 @@ class OrderController extends Controller
             "email" => "required",
             "phone" => "required",
             "address" => "required",
-            "quantity" => "required",
             "book_id" => "required",
             "payment_screenshot" => "required",
         ]);
@@ -36,7 +35,6 @@ class OrderController extends Controller
         $order->email = $request->email;
         $order->phone = $request->phone;
         $order->address = $request->address;
-        $order->quantity = $request->quantity;
         $order->book_id = $request->book_id;
         if ($request->hasFile('payment_screenshot')) {
             $filename = $request->file('payment_screenshot')->getClientOriginalName();
@@ -64,9 +62,40 @@ class OrderController extends Controller
     public function confirm($id)
     {
         $order = Order::find($id);
-        $order->confirm = true;
-        $order->save();
-        Mail::to("$order->email")->send(new OrderConfimMail($order));
-        return back();
+        $details = [
+            "title" => "Order Confirmed!",
+            "message" => "Hey $order->name, We've got your order! We'll send your order from delievery. Thanks for supporting me.",
+        ];
+        try {
+            Mail::to("$order->email")->send(new OrderConfimMail($details));
+            $order->confirm = true;
+            $order->update();
+        } catch (Exception $e) {
+            return back()->with('error', 'something Wrong!');
+        }
+        return back()->with('success', "Order confirm Mail Send!");
+    }
+
+    public function cancel($id, Request $request)
+    {
+        $validator = $request->validate([
+            "message" => "required",
+        ]);
+        if (!$validator) {
+            return back()->with('error', 'something wrong!');
+        }
+        $details = [
+            "title" => "Order Canceled!",
+            "message" => $request->message,
+        ];
+        $order = Order::find($id);
+        try {
+            Mail::to("$order->email")->send(new OrderConfimMail($details));
+            $order->confirm = false;
+            $order->update();
+        } catch (Exception $e) {
+            return back()->with('error', 'something Wrong!');
+        }
+        return back()->with('success', "Order cancel Mail Send!");
     }
 }
