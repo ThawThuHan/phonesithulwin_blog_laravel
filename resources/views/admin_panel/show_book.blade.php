@@ -19,7 +19,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
-                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation">
+                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation col-8">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="title" class="form-label">Book Title:</label>
@@ -36,10 +36,24 @@
                         <input type="text" name="features" id="features" class="form-control" placeholder="Features of your book..." value="<?= $book->features ?>">
                         <div class="invalid-feedback">required!</div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="released_date" class="form-label">Released date:</label>
-                        <input type="date" name="release_date" id="released_date" class="form-control" value="<?= $book->release_date ?>">
-                        <div class="invalid-feedback">required!</div>
+                    <div class="row mb-3">
+                        <div class="col form-group">
+                            <label for="released_date" class="form-label">Released date:</label>
+                            <input type="date" name="release_date" id="released_date" class="form-control" value="<?= $book->release_date ?>">
+                            <div class="invalid-feedback">required!</div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="available" class="form-label">Available</label>
+                            <select class="form-select" name="available" id="available">
+                                @if ($book->available)
+                                    <option value="1" selected>yes</option>
+                                    <option value="0">no</option>
+                                @else
+                                    <option value="1">yes</option>
+                                    <option value="0" selected>no</option>
+                                @endif
+                            </select>
+                        </div>
                     </div>
 
                     <?php $image_list = json_decode($book->images); ?>

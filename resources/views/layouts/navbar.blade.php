@@ -5,7 +5,7 @@
         </button>
 
         <!-- logo -->
-        <a class="navbar-brand ms-5" href="index.php">
+        <a class="navbar-brand ms-5" href="{{ route('home') }}">
             <img src="{{ asset("assets/images/logo.jpg") }}" alt="" id="logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,9 +31,9 @@
                     <a class="nav-link" href="/contact">CONTACT</a>
                 </li>
             </ul>
-            <form class="d-flex me-3">
-                <input class="form-control rounded-pill search" type="search" placeholder="Search" aria-label="Search">
-                <i class="fa fa-search" id="search"></i>
+            <form class="d-flex me-3" action="{{ route('search') }}" method="GET">
+                <input class="form-control rounded-pill me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                {{-- <i class="fa fa-search" id="search"></i> --}}
                 <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
         </div>

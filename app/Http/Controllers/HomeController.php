@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $books = Book::all();
         $recentPosts = Post::latest()->paginate(9);
-        $popularPosts = Post::limit(4)->get();
+        $popularPosts = Post::orderBy('view_count', 'desc')->take(4)->get();;
         // dd($popularPosts);
         return view('home', [
             "books" => $books,
@@ -49,5 +49,37 @@ class HomeController extends Controller
             "popular" => $popular,
             "relatedPosts" => $relatedPosts,
         ]);
+    }
+
+    // categories page
+    public function categories()
+    {
+        $categories = Category::all();
+        return view("categories", [
+            "categories" => $categories,
+        ]);
+    }
+
+    public function postsByCategory($id)
+    {
+        $category = Category::find($id);
+        $posts = $category->posts;
+        return view("posts", [
+            "category" => $category,
+            "posts" => $posts,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        if (isset($_GET['query'])) {
+            $search = $_GET['query'];
+            $posts = Post::where('content', 'LIKE', '%' . $search . '%')->get();
+            return view('search', [
+                "search" => $search,
+                "posts" => $posts,
+            ]);
+        }
+        return back();
     }
 }

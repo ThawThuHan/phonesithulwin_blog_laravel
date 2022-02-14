@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->integer("price");
             $table->integer("order_count")->default(0);
             $table->date("release_date");
+            $table->boolean("available")->default(true);
             $table->string("features");
             $table->timestamps();
         });

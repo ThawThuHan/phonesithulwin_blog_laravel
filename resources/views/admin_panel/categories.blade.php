@@ -8,16 +8,18 @@
             <h3>Categories</h3>
             <button class="btn btn-primary mt-2" id="new-category-btn"><i class="fas fa-plus"></i> new category</button>
         </div>
-        <form id="new-category-form" class="py-2 d-flex align-items-center d-none" action="" method="POST">
+        <form id="new-category-form" class="col-6 py-2 d-none" action="" method="POST" enctype="multipart/form-data">
             @csrf
-            <input class="form-control w-25" type="text" id="category_name" name="category_name" placeholder="Category Name">
+            <input class="form-control mb-2" type="text" id="category_name" name="category_name" placeholder="Category Name">
+            <input type="file" name="image" class="form-control mb-2">
             <button class="btn btn-primary ms-1">Submit</button>
         </form>
 
         <?php if (isset($category) && $category != "") : ?>
-            <form class="py-2 d-flex align-items-center" action="/admin-panel/categories/update/{{ $category->id }}" method="POST">
+            <form class="col-6 py-2" action="/admin-panel/categories/update/{{ $category->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input class="form-control w-25" type="text" name="category_name" placeholder="Category Name" value="{{ $category->name }}">
+                <input class="form-control mb-2" type="text" id="category_name" name="category_name" placeholder="Category Name" value="{{ $category->name }}">
+                <input type="file" name="image" class="form-control mb-2">
                 <button class="btn btn-primary ms-1">Submit</button>
             </form>
         <?php endif; ?>
@@ -37,6 +39,7 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>Posts</th>
                     <th>Actions</th>
                 </tr>
@@ -51,6 +54,7 @@
                     <tr>
                         <td><?= $category->id ?></td>
                         <td><?= $category->name ?></td>
+                        <td><img src="{{ asset("storage/category_images/".$category->image) }}" alt="" style="width:80px; height:100px"></td>
                         <td><?= $postCount ?></td>
                         <td>
                             <a href="/admin-panel/categories/{{ $category->id }}/articles" class="btn btn-primary"><i class="fas fa-eye"></i></a>

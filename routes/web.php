@@ -27,10 +27,12 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/posts/{id}', [HomeController::class, 'post']);
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/about', fn () => view('about'));
 
-Route::get('/categories', fn () => view('categories'));
+Route::get('/categories', [HomeController::class, 'categories']);
+Route::get('/categories/{id}/posts', [HomeController::class, 'postsByCategory']);
 
 Route::get('/contact', fn () => view('contact'));
 

@@ -29,15 +29,23 @@ class CategoryController extends Controller
     {
         $validate = $request->validate([
             "category_name" => "required",
+            "image" => "required",
         ]);
 
         if ($validate) {
             $category = new Category();
             $category->name = $request->category_name;
+            if ($request->hasFile("image")) {
+                $filename = $request->file('image')->getClientOriginalName();
+                $request->file('image')->move("storage/category_images", $filename);
+                $category->image = $filename;
+            } else {
+                return redirect()->back()->with('error', 'something wrong!');
+            }
             $category->save();
             return redirect()->route('admin_panel');
         } else {
-            return redirect()->route('admin_panel')->with('error');
+            return redirect()->route('admin_panel')->withErrors($validate);
         }
     }
 
@@ -49,6 +57,11 @@ class CategoryController extends Controller
         if ($validate) {
             $category = Category::find($id);
             $category->name = $request->category_name;
+            if ($request->hasFile("image")) {
+                $filename = $request->file('image')->getClientOriginalName();
+                $request->file('image')->move("storage/category_images", $filename);
+                $category->image = $filename;
+            }
             $result = $category->update();
             if ($result) {
                 return redirect()->route('admin_panel');

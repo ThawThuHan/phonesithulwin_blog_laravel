@@ -159,14 +159,14 @@
                         <img src="{{ URL("storage/post_images/".$post->image) }}" class="card-img-top" alt="...">
                         <div class="card-body border-bottom">
                             <h5 class="card-title d-inline">{{ $post->title }}</h5>
-                            <span class="float-end">{{ $post->view_count }}<i class="fas fa-eye"></i></span>
-                            <br>
-                            <br>
-                            <p class="card-text">
+                            <div class="text-muted">
+                                <span>{{ $post->created_at }}</span>
+                                <span class="card-subtitle float-end"><i class="fas fa-eye"></i> {{ $post->view_count }}</span>
+                            </div>
+                            <p class="card-text mt-4">
                                 {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
                             </p>
-                            <span>{{ $post->created_at }}</span>
-                            <a href="/posts/{{ $post->id }}" class="btn btn-info float-end text-white">Read more</a>
+                            <a href="/posts/{{ $post->id }}" class="btn btn-info mt-2 float-end text-white">Read more</a>
                         </div>
                     </div>
                 </a>
@@ -180,23 +180,29 @@
 <div class="container mt-3">
     <h2 class="mb-4 sub-title">Popular Posts</h2>
     <div class="row mb-4">
+        @foreach ($popularPosts as $post)
+        <?php
+        $content = str_replace("\"", "\\\"", $post->content);
+        $content = strip_tags($content);
+        ?>
         <div class="col-12 col-md-6 col-lg-3 mb-3">
             <a href="blog.php" class="text-decoration-none text-black blog">
                 <div class="card blogShadow">
-                    <img src="assets/images/stress.jpg" class="card-img-top" alt="...">
+                    <img src="{{ URL("storage/post_images/".$post->image) }}" class="card-img-top" alt="...">
                     <div class="card-body border-bottom">
-                        <h3 class="card-title">Stress/Pressure</h3>
-                        <div class="float-end">2.7k<i class="fas fa-eye"></i></div>
+                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <div class="float-end">{{ $post->view_count }}<i class="fas fa-eye"></i></div>
                         <p class="card-text mt-5 mb-2">
-                            ကျွန်တော်တို့တတွေက ဖိအားတွေကြောင့် ဝေဒနာဆိုးတွေခံစားနေကြရပါတယ် စိတ်ဝေဒနာတွေက များလွန်းလာတော့ ခန္ဓာကိုယ်ဆီကိုလွှဲပြီး ဗိုက်အောင့်တယ်...
+                            {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
                         </p>
-                        <span>Jan 14,2021</span>
+                        <span>{{ $post->created_at }}</span>
                         <a href="blog.php" class="btn btn-info float-end text-white">Read more</a>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mb-3">
+        @endforeach
+        {{-- <div class="col-12 col-md-6 col-lg-3 mb-3">
             <a href="blog.php" class="text-decoration-none text-black blog">
                 <div class="card blogShadow">
                     <img src="assets/images/omicron.jpg" class="card-img-top" alt="...">
@@ -243,7 +249,7 @@
                     </div>
                 </div>
             </a>
-        </div>
+        </div> --}}
     </div>
 </div>
 
@@ -268,15 +274,15 @@
                             <div class="col-md-4 book">
                                 <img src="{{ URL("storage/book_images/".$images[0]) }}" class="" alt="..." style="object-fit: cover; width: 100%; height: 280px;">
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title d-inline"><b><?= $book->name ?></b></h5>
-                                    <div class="float-end my-3"><?= $book->order_count ?><i class="fas fa-shopping-cart"></i></div>
-                                    <p class="card-text mt-4 mb-2">
-                                        <?= $book->preview_content ?>
-                                    </p>
-                                    <span class="float-start my-3 text-danger"><?= $book->price ?></span>
-                                    <a href="/book/<?= $book->id ?>/order" class="btn btn-info float-end text-white my-2">Order Now</a>
+                            <div class="col-md-8 p-3 d-flex flex-column justify-content-between">
+                                <h5 class="card-title d-inline"><b><?= $book->name ?></b></h5>
+                                {{-- <div class="float-end my-3"><?= $book->order_count ?><i class="fas fa-shopping-cart"></i></div> --}}
+                                <p class="card-text mt-4 mb-2">
+                                    <?= $book->preview_content ?>
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="float-start my-3 text-danger"><?= $book->price." Ks" ?></span>
+                                    <a href="/book/<?= $book->id ?>/order" class="btn btn-info text-white my-2">Order Now</a>
                                 </div>
                             </div>
                         </div>

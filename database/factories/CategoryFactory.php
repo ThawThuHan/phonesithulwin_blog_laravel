@@ -15,6 +15,7 @@ class CategoryFactory extends Factory
     {
         return [
             "name" => ucwords($this->faker->word),
+            "image" => $this->faker->image("public/storage/category_images", fullPath: false),
         ];
     }
 }

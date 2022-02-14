@@ -27,6 +27,7 @@ class BookController extends Controller
         $book->features = $request->features;
         $book->release_date = $request->release_date;
         $book->preview_content = $request->preview_content;
+        $book->available = $request->available;
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $filename = $file->getClientOriginalName();
@@ -49,6 +50,7 @@ class BookController extends Controller
         $book->features = $request->features;
         $book->release_date = $request->release_date;
         $book->preview_content = $request->preview_content;
+        $book->available = $request->available;
         $book->images = $request->old_images;
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {

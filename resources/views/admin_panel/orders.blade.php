@@ -52,35 +52,34 @@
                                         <button type="button" class="btn btn-outline-danger mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         cancel
                                         </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form action="/admin-panel/orders/{{ $order->id }}/confirm" id="send_message" method="POST">
+                                                @csrf
+                                                <h3>Reply Message to</h3>
+                                                <textarea name="message" class="form-control" ></textarea>
+                                            </form>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" onclick="event.preventDefault(); document.querySelector('#send_message').submit();" class="btn btn-primary">Send Message</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                     @endif
                                 </td>
                             </tr>
                         @endforeach
                     @endif
                   </tbody>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form action="/admin-panel/orders/{{ $order->id }}/confirm" id="send_message" method="POST">
-                            @csrf
-                            <h3>Reply Message to</h3>
-                            <textarea name="message" class="form-control" ></textarea>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" onclick="event.preventDefault(); document.querySelector('#send_message').submit();" class="btn btn-primary">Send Message</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
             </table>         
     </div>
     

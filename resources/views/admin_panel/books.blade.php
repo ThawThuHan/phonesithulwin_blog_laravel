@@ -78,10 +78,19 @@
                 <input type="text" name="features" id="features" class="form-control" placeholder="Features of your book..." required>
                 <div class="invalid-feedback">required!</div>
             </div>
-            <div class="form-group mb-3">
-                <label for="released_date" class="form-label">Released date:</label>
-                <input type="date" name="release_date" id="release_date" class="form-control" required>
-                <div class="invalid-feedback">required!</div>
+            <div class="row mb-3">
+                <div class="col form-group">
+                    <label for="released_date" class="form-label">Released date:</label>
+                    <input type="date" name="release_date" id="release_date" class="form-control" required>
+                    <div class="invalid-feedback">required!</div>
+                </div>
+                <div class="col form-group">
+                    <label for="available" class="form-label">Available</label>
+                    <select class="form-select" name="available" id="available">
+                        <option value="true">yes</option>
+                        <option value="false">no</option>
+                    </select>
+                </div>
             </div>
             <div class="form-group mb-3">
                 <label for="image" class="form-label">Book cover & preview:</label>
