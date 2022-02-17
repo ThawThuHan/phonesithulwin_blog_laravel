@@ -83,6 +83,31 @@
         plugin: ['ImageResizeEditing', 'ImageResizeHandles', 'SimpleImageUploader'],
         simpleUpload: {
             uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+        },
+        image: {
+            resizeOptions: [
+                {
+                    name: 'resizeImage:original',
+                    value: null,
+                    label: 'Original'
+                },
+                {
+                    name: 'resizeImage:40',
+                    value: '20',
+                    label: '20%'
+                },
+                {
+                    name: 'resizeImage:60',
+                    value: '60',
+                    label: '60%'
+                },
+                {
+                    name: 'resizeImage:60',
+                    value: '100',
+                    label: '100%'
+                },
+            ],
+            toolbar: [ 'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:alignLeft', '|', 'toggleImageCaption', 'imageTextAlternative', 'resizeImage']
         }
     });
 

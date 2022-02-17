@@ -45,14 +45,18 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $i = 0;
+                @endphp
                 <?php foreach ($categories as $category) : ?>
                     <?php
+                    $i += 1;
                     // $posts_table = new Posts_Table($mysql);
                     // $posts = $posts_table->getByCategory($category->id);
                     $postCount = count($category->posts);
                     ?>
                     <tr>
-                        <td><?= $category->id ?></td>
+                        <td><?= $i ?></td>
                         <td><?= $category->name ?></td>
                         <td><img src="{{ asset("storage/category_images/".$category->image) }}" alt="" style="width:80px; height:100px"></td>
                         <td><?= $postCount ?></td>

@@ -7,13 +7,13 @@
 @endsection
 
 @section('content')
-<div class="banner container-fluid">
-    <div class="container py-auto" id="title-box">
+<div class="container-fluid">
+    <div class="banner container py-auto" id="title-box">
         <div class="row g-5">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center py-4">
-                <h1 class="text-center text-white">Dr.Phone Sithu Lwin</h1>
-                <h3 class="text-center text-white mb-5">Knowledge Sharing</h3>
-                <p class=" text-white">
+                <h1 class="text-primary ">Dr.Phone Sithu Lwin</h1>
+                <h3 class="text-primary mb-5">Knowledge Sharing</h3>
+                <p class=" text-primary">
                     ကျနော့်ကို မေးချင်တာရှိလို့ဘဲဖြစ်ဖြစ် feedback ပြန်ပေးချင်လို့ဘဲဖြစ်ဖြစ် အောက်က form ကိုဖြည့်ပြီး မေးထားလို့ရပါတယ် ခင်ဗျာ ကျနော့်အနေနဲ့ အတက်နိုင်ဆုံး ပြန်လည်ဖြေကြားပေးပါမယ် ခင်ဗျာ
                     ကျနော် သည် ပုဂ္ဂလိဂ် ဆေးရုံ က ဆရာဝန်တစ်ယောက်ဖြစ်သလို့ ဆေးနဲ့ပတ်သက်သည့် စာများ blogများ ရေးသားသောသူဖြစ်သောကြောင့် ပြန်လည်ဖြေကြားရာ၌ အချိန် အနည်းငယ်နောက်ကျနိုင်ပါသည်
 
@@ -23,8 +23,8 @@
                     <a href="about.php" class="btn btn-info rounded-pill text-white">About me</a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 d-none d-lg-flex align-items-center justify-content-center" id="morph">
-                <img src="assets/images/title.jpg" alt="" class="w-75">
+            <div class="col-12 col-md-6 d-none d-lg-flex align-items-center justify-content-center">
+                <img src="assets/images/doctor-removebg-preview.png" alt="" class="w-50">
             </div>
         </div>
     </div>
@@ -268,11 +268,14 @@
                 <?php
                 $images = json_decode($book->images);
                 ?>
-                <div onclick="location.href='/book/{{ $book->id }}/order'" class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                     <div class="card mb-3 mx-3 blogShadow">
                         <div class="row g-0">
-                            <div class="col-md-4 book">
-                                <img src="{{ URL("storage/book_images/".$images[0]) }}" class="" alt="..." style="object-fit: cover; width: 100%; height: 280px;">
+                            <div class="col-md-4 book position-relative">
+                                @if (!$book->available)
+                                <div class="bg-danger text-white text-center position-absolute top-0 px-2">out of stock</div>
+                                @endif
+                                <img src="{{ URL("storage/book_images/".$images[0]) }}" class="" alt="..." style="object-fit: cover; width: 100%;height: 280px;">
                             </div>
                             <div class="col-md-8 p-3 d-flex flex-column justify-content-between">
                                 <h5 class="card-title d-inline"><b><?= $book->name ?></b></h5>
@@ -282,7 +285,11 @@
                                 </p>
                                 <div class="d-flex justify-content-between">
                                     <span class="float-start my-3 text-danger"><?= $book->price." Ks" ?></span>
+                                    @if ($book->available)
                                     <a href="/book/<?= $book->id ?>/order" class="btn btn-info text-white my-2">Order Now</a>
+                                    @else
+                                    <a class="btn btn-secondary text-white my-2">Order Now</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

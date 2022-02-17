@@ -12,7 +12,7 @@
         <span>{{ $current->created_at }}</span>
         <small>-by <b>Dr.Phone Sithu Lwin</b></small>
         <p>
-            {{ $current->content }}
+            <?= $current->content ?>
         </p>
 
         <!-- share -->
