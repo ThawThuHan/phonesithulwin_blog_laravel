@@ -8,7 +8,7 @@
             <h3>Categories</h3>
             <button class="btn btn-primary mt-2" id="new-category-btn"><i class="fas fa-plus"></i> new category</button>
         </div>
-        <form id="new-category-form" class="col-6 py-2 d-none" action="" method="POST" enctype="multipart/form-data">
+        <form id="new-category-form" class="col-6 py-2 d-none" action="/admin-panel/categories" method="POST" enctype="multipart/form-data">
             @csrf
             <input class="form-control mb-2" type="text" id="category_name" name="category_name" placeholder="Category Name">
             <input type="file" name="image" class="form-control mb-2">

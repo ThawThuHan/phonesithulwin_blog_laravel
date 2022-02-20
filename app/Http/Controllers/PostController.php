@@ -83,7 +83,7 @@ class PostController extends Controller
         // dd($request->previous_route);
         $post = Post::find($id);
         $previous_route = $request->previous_route;
-        // $post->delete();
+        $post->delete();
         // return redirect()->back()->with('info', "Post Deleted!");
         if ($previous_route == "admin_panel.articles") {
             return redirect()->route('admin_panel.articles')->with('info', "Post Deleted!");

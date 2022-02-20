@@ -14,6 +14,9 @@ class OrderController extends Controller
     public function index($id)
     {
         $book = Book::find($id);
+        if (!$book) {
+            abort(404);
+        }
         return view('book_order', ['book' => $book]);
     }
 
@@ -71,6 +74,7 @@ class OrderController extends Controller
             $order->confirm = true;
             $order->update();
         } catch (Exception $e) {
+            // dd($e->getMessage());
             return back()->with('error', 'something Wrong!');
         }
         return back()->with('success', "Order confirm Mail Send!");

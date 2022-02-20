@@ -18,7 +18,7 @@
 @section('content')
 <div class="container mt-5">
     <h2 class="mb-4 sub-title">Search Result: {{$search}} </h2>
-        @if (count($posts) > 1)
+        @if (count($posts) > 0)
             <div class="row mb-0 mb-md-4">
             @foreach ($posts as $post)
                 <?php

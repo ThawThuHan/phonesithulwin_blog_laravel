@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -40,6 +41,9 @@ class HomeController extends Controller
     public function post($id)
     {
         $post = Post::find($id);
+        if (!$post) {
+            throw new ModelNotFoundException(); // abort(404);
+        }
         $recentPosts = Post::latest()->take(5)->get();
         $popular = Post::orderBy('view_count', 'desc')->take(5)->get();
         $relatedPosts = Post::where("category_id", $post->category_id)->take(3)->get();
@@ -74,7 +78,9 @@ class HomeController extends Controller
     {
         if (isset($_GET['query'])) {
             $search = $_GET['query'];
+            $search = mb_convert_encoding($search, 'utf-8');
             $posts = Post::where('content', 'LIKE', '%' . $search . '%')->get();
+            // dd($posts);
             return view('search', [
                 "search" => $search,
                 "posts" => $posts,

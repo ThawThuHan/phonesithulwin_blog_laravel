@@ -42,9 +42,9 @@
                                   </a>
                                 </td>
                                 <td>
-                                    @if ($order->confirm === 1)
+                                    @if ($order->confirm === "1")
                                         <p class="btn btn-success disabled">Confirmed</p>
-                                    @elseif ($order->confirm === 0)
+                                    @elseif ($order->confirm === "0")
                                         <p class="btn btn-danger disabled">Canceled</p>
                                     @else
                                         <a href="/admin-panel/orders/{{ $order->id }}/confirm" class="btn btn-outline-primary">confirm</a>

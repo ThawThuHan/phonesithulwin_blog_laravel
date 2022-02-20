@@ -7,8 +7,8 @@
 @endsection
 
 @section('content')
-<div class="container-fluid">
-    <div class="banner container py-auto" id="title-box">
+<div class="banner container-fluid">
+    <div class="container py-auto" id="title-box">
         <div class="row g-5">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center py-4">
                 <h1 class="text-primary ">Dr.Phone Sithu Lwin</h1>
@@ -20,7 +20,7 @@
                     အလားတူ facebook page ကဖြစ်စေ telegram channel ကဖြစ်စေ youtube channel ၏ comment box မှဖြစ်စေ မေးမြန်းနိုင်ပါသည်
                 </p>
                 <div class="container d-flex align-items-center justify-content-center">
-                    <a href="about.php" class="btn btn-info rounded-pill text-white">About me</a>
+                    <a href="/about" class="btn btn-info rounded-pill text-white">About me</a>
                 </div>
             </div>
             <div class="col-12 col-md-6 d-none d-lg-flex align-items-center justify-content-center">

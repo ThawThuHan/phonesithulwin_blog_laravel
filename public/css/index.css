@@ -5,7 +5,7 @@
 
 .banner {
     /* background: linear-gradient(45deg, rgba(42, 42, 255, 1) 49%, rgba(126, 184, 249, 1) 100%); */
-    background-image: url("../assets/images/home_banner2.jpg");
+    background-image: url("../assets/images/home_banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Posts')
+@section('title', $current->title)
 
 @section('content')
 <div class="row mx-2">
     <div class="col-sm-12 col-md-8">
         <div class="mb-4" style="width: 100%; height: 350px;">
-            <img src="{{ asset('storage/post_images/'.$current->image) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="{{ asset('storage/post_images/'.$current->image) }}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
         <h2 class="">{{ $current->title }}</h2>
         <span>{{ $current->created_at }}</span>
@@ -22,17 +22,13 @@
         ?>
         <div class="mx-5 mt-1 d-flex align-items-center gap-1" id="footer">
             <!-- facebook -->
-            <!-- Load Facebook SDK for JavaScript -->
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="mFe5oR9l"></script>
-            <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fphonesithulwin-blog.great-site.net%2Fblog.php&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
-
-            <!-- share button code -->
-            <div class="fb-share-button" data-href="https://phonesithulwin-blog.great-site.net/blog.php" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphonesithulwin-blog.great-site.net%2Fblog.php&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-
-            <!-- telegram twitter -->
-            <a href="https://t.me/share?url=<?php echo ($url); ?>" class="fab fa-telegram fs-4 mx-1 my-2 text-decoration-none"></a>
-            <a href="https://twitter.com/intent/tweet?original_referer=<?php echo ($url); ?>" class="fab fa-twitter fs-4 text-primary mx-1 my-2 text-decoration-none"></a>
+            <a href="http://www.facebook.com/sharer.php?u={{ Request::url() }}" class="fab fa-facebook fs-4 text-primary mx-1 my-2 text-decoration-none"></a>
+            <!-- telegram -->
+            <a href="https://t.me/share?url={{ Request::url() }}" class="fab fa-telegram fs-4 mx-1 my-2 text-decoration-none"></a>
+            <!-- twitter -->
+            <a href="https://twitter.com/intent/tweet?original_referer={{ Request::url() }}" class="fab fa-twitter fs-4 text-primary mx-1 my-2 text-decoration-none"></a>
+            <!-- linkedin -->
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}" class="fab fa-linkedin fs-4"></a>
             <!-- <a href="#" class="fab fa-pinterest fs-4 text-danger mx-1 my-2 text-decoration-none"></a> -->
         </div>
     </div>

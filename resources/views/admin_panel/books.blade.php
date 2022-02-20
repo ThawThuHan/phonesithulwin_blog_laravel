@@ -87,8 +87,8 @@
                 <div class="col form-group">
                     <label for="available" class="form-label">Available</label>
                     <select class="form-select" name="available" id="available">
-                        <option value="true">yes</option>
-                        <option value="false">no</option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
                     </select>
                 </div>
             </div>

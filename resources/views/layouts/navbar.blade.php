@@ -19,13 +19,13 @@
                     <a class="nav-link" href="/home">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">ABOUT</a>
+                    <a class="nav-link" href="/#book">BOOKS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/categories">CATEGORIES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#book">BOOKS</a>
+                    <a class="nav-link" href="/about">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">CONTACT</a>
