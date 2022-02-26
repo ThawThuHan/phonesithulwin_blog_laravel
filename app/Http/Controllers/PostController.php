@@ -92,4 +92,21 @@ class PostController extends Controller
             return redirect()->route('admin_panel.category.articles', ['id' => $post->category_id])->with('info', "Post Deleted!");
         }
     }
+
+    public function search(Request $request)
+    {
+        if (isset($_GET['query'])) {
+            // dd($_GET['query']);
+            $search = $_GET['query'];
+            $categories = Category::all();
+            $search = mb_convert_encoding($search, 'utf-8');
+            $posts = Post::where('content', 'LIKE', '%' . $search . '%')->get();
+            // dd($posts);
+            return view('admin_panel.articles', [
+                "categories" => $categories,
+                "posts" => $posts,
+            ]);
+        }
+        return back();
+    }
 }

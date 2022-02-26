@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin-panel/categories/{id}/articles', [PostController::class, "create"]);
 
     Route::get('/admin-panel/articles', [PostController::class, "getAll"])->name("admin_panel.articles");
+    Route::get('/admin-panel/articles/search', [PostController::class, "search"]);
     Route::post('/admin-panel/articles', [PostController::class, "create"]);
     Route::post('/ckeditor/upload', [CkeditorController::class, "upload"])->name('ckeditor.upload');
     Route::get('/admin-panel/articles/{id}', [PostController::class, "get"]);

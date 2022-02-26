@@ -20,8 +20,8 @@
 <div class="col-10 px-2">
     <div class="py-2 d-flex flex-wrap justify-content-between">
         <h3>Articles</h3>
-        <form class="d-flex" action="">
-            <input class="form-control" type="text" placeholder="Search">
+        <form class="d-flex" action="/admin-panel/articles/search">
+            <input class="form-control" type="text" name="query" placeholder="Search">
             <button class="btn btn-primary ms-2">Search</button>
         </form>
     </div>
