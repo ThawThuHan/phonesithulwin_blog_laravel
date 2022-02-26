@@ -78,6 +78,8 @@
 @section('script')
 <script src="{{ asset("packages/ckeditor5-cs/build/ckeditor.js") }}"></script>
 <script>
+    ClassicEditor.contentsCss = "css/content.css";
+    // ClassicEditor.allowedContent = true;
     ClassicEditor.create(document.querySelector("#editor"), {
         // plugin: ['Image', 'ImageToolbar', 'ImageCaption', 'ImageStyle', 'ImageResize', 'SimpleImageUploader', ],
         plugin: ['ImageResizeEditing', 'ImageResizeHandles', 'SimpleImageUploader'],
@@ -92,9 +94,14 @@
                     label: 'Original'
                 },
                 {
-                    name: 'resizeImage:40',
+                    name: 'resizeImage:20',
                     value: '20',
                     label: '20%'
+                },
+                {
+                    name: 'resizeImage:40',
+                    value: '40',
+                    label: '40%'
                 },
                 {
                     name: 'resizeImage:60',
@@ -102,12 +109,17 @@
                     label: '60%'
                 },
                 {
-                    name: 'resizeImage:60',
+                    name: 'resizeImage:80',
+                    value: '80',
+                    label: '80%'
+                },
+                {
+                    name: 'resizeImage:100',
                     value: '100',
                     label: '100%'
                 },
             ],
-            toolbar: [ 'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:alignLeft', '|', 'toggleImageCaption', 'imageTextAlternative', 'resizeImage']
+            toolbar: [ 'imageStyle:alignBlockRight', 'imageStyle:alignCenter', 'imageStyle:alignBlockLeft', '|', 'toggleImageCaption', 'imageTextAlternative', 'resizeImage']
         }
     });
 

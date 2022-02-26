@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         Category::factory()->count(5)->create();
         Book::factory()->count(3)->create();
 
+        User::truncate();
         User::factory()->create([
             "name" => config("admin.admin_name"),
             "email" => config("admin.admin_email"),

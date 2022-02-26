@@ -16,7 +16,7 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("preview_content");
+            $table->text("preview_content");
             $table->text("images");
             $table->integer("price");
             $table->integer("order_count")->default(0);

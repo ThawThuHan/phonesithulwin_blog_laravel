@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
@@ -35,6 +36,7 @@ Route::get('/categories', [HomeController::class, 'categories']);
 Route::get('/categories/{id}/posts', [HomeController::class, 'postsByCategory']);
 
 Route::get('/contact', fn () => view('contact'));
+Route::post('/contact', [ContactController::class, 'send']);
 
 Route::get('/book/{id}/order', [OrderController::class, "index"]);
 Route::post('/book/{id}/order', [OrderController::class, "create"]);

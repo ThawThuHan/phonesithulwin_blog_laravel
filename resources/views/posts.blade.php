@@ -17,7 +17,7 @@
                     <div class="card-body border-bottom">
                         <h5 class="card-title d-inline">{{ $post->title }}</h5>
                         <div class="text-muted">
-                            <span>{{ $post->created_at }}</span>
+                            <span>{{ $post->created_at->diffForHumans() }}</span>
                             <span class="card-subtitle float-end"><i class="fas fa-eye"></i> {{ $post->view_count }}</span>
                         </div>
                         <p class="card-text mt-4">

@@ -14,17 +14,20 @@
                 <h1 class="text-primary ">Dr.Phone Sithu Lwin</h1>
                 <h3 class="text-primary mb-5">Knowledge Sharing</h3>
                 <p class=" text-primary">
-                    ကျနော့်ကို မေးချင်တာရှိလို့ဘဲဖြစ်ဖြစ် feedback ပြန်ပေးချင်လို့ဘဲဖြစ်ဖြစ် အောက်က form ကိုဖြည့်ပြီး မေးထားလို့ရပါတယ် ခင်ဗျာ ကျနော့်အနေနဲ့ အတက်နိုင်ဆုံး ပြန်လည်ဖြေကြားပေးပါမယ် ခင်ဗျာ
-                    ကျနော် သည် ပုဂ္ဂလိဂ် ဆေးရုံ က ဆရာဝန်တစ်ယောက်ဖြစ်သလို့ ဆေးနဲ့ပတ်သက်သည့် စာများ blogများ ရေးသားသောသူဖြစ်သောကြောင့် ပြန်လည်ဖြေကြားရာ၌ အချိန် အနည်းငယ်နောက်ကျနိုင်ပါသည်
-
-                    အလားတူ facebook page ကဖြစ်စေ telegram channel ကဖြစ်စေ youtube channel ၏ comment box မှဖြစ်စေ မေးမြန်းနိုင်ပါသည်
+                    ကျွန်တော် ဘုန်းစည်သူလွင် သည် အထွေထွေရောဂါကုဆရာဝန် တစ်ယောက်ဖြစ်ပြီး မိသားစုကျန်းမာရေးစောင့်ရှောက်မှုဆေးပညာဘွဲလွန် နှင့် တော်ဝင်သမားတော်ဘွဲ့ရေးဖြေ (MRCP part II) အောင်မြင်ထားပါတယ်။
+                    <br>
+                    ၁။ မလိုအပ်ပဲ ဆေးများ မသောက်သုံးစေလိုခြင်း <br>
+                    ၂။ မိမိခံစားနေရသော ရောဂါဝေဒနာ အချိုကို သိရှိစေလိုခြင်း <br>
+                    ၃။ Healthy Life Style (ကျန်းမာသော လူနေမှုပုံစံ) ပြောင်းလဲ ခြင်း <br>
+                    စသည်ဖြင့် ရောဂါများကင်းဝေး စေလိုခြင်း စသည့်ရည်ရွယ်ချက်များဖြင့် ကျန်းမာရေးဆောင်းပါးများရေးသား မျှဝေနေသူတစ်ဦးဖြစ်ပါသည်။ 
+                    ဤ Blog Website တွင် အကြောင်းအရာများစွာ လေ့လာဖတ်ရှုနိုင်ပါသည်။
                 </p>
                 <div class="container d-flex align-items-center justify-content-center">
                     <a href="/about" class="btn btn-info rounded-pill text-white">About me</a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 d-none d-lg-flex align-items-center justify-content-center">
-                <img src="assets/images/doctor-removebg-preview.png" alt="" class="w-50">
+            <div class="col-12 col-md-6 d-none d-lg-flex align-items-end justify-content-center">
+                <img src="assets/images/phonestl2.png" style="width: 70%" alt="">
             </div>
         </div>
     </div>
@@ -160,7 +163,7 @@
                         <div class="card-body border-bottom">
                             <h5 class="card-title d-inline">{{ $post->title }}</h5>
                             <div class="text-muted">
-                                <span>{{ $post->created_at }}</span>
+                                <span>{{ $post->created_at->diffForHumans() }}</span>
                                 <span class="card-subtitle float-end"><i class="fas fa-eye"></i> {{ $post->view_count }}</span>
                             </div>
                             <p class="card-text mt-4">
@@ -186,7 +189,7 @@
         $content = strip_tags($content);
         ?>
         <div class="col-12 col-md-6 col-lg-3 mb-3">
-            <a href="blog.php" class="text-decoration-none text-black blog">
+            <a href="/posts/{{ $post->id }}" class="text-decoration-none text-black blog">
                 <div class="card blogShadow">
                     <img src="{{ URL("storage/post_images/".$post->image) }}" class="card-img-top" alt="...">
                     <div class="card-body border-bottom">
@@ -195,8 +198,8 @@
                         <p class="card-text mt-5 mb-2">
                             {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
                         </p>
-                        <span>{{ $post->created_at }}</span>
-                        <a href="blog.php" class="btn btn-info float-end text-white">Read more</a>
+                        <span>{{ $post->created_at->diffForHumans() }}</span>
+                        <a href="/posts/{{ $post->id }}" class="btn btn-info float-end text-white">Read more</a>
                     </div>
                 </div>
             </a>
@@ -281,7 +284,7 @@
                                 <h5 class="card-title d-inline"><b><?= $book->name ?></b></h5>
                                 {{-- <div class="float-end my-3"><?= $book->order_count ?><i class="fas fa-shopping-cart"></i></div> --}}
                                 <p class="card-text mt-4 mb-2">
-                                    <?= $book->preview_content ?>
+                                    {{ mb_strimwidth($book->preview_content, 0, 100, '...', 'utf-8') }}
                                 </p>
                                 <div class="d-flex justify-content-between">
                                     <span class="float-start my-3 text-danger"><?= $book->price." Ks" ?></span>

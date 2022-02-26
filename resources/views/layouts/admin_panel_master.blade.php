@@ -14,7 +14,7 @@
 <body>
 
     @php
-        $orders = App\Models\Order::all();
+        $orders = App\Models\Order::count();
     @endphp
 
     <div class="row g-0">
@@ -38,7 +38,7 @@
                         <a href="{{ route("admin_panel.orders") }}" class="list-group-item list-group-item-action">
                             <i class="fas fa-cart-plus"></i>
                             <span class="d-none d-md-inline">Orders</span>
-                            <span class="badge rounded-pill bg-danger float-end">{{ count($orders) }}</span>
+                            <span class="badge rounded-pill bg-danger float-end">{{ $orders }}</span>
                         </a>
                         <a href="admin_panel_users.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>
@@ -47,6 +47,7 @@
                     </ul>
                 </div>
                 <ul class="list-group px-1 px-md-3 py-3">
+                    <a href="/home">go to Home Page</a>
                     <a href="{{ route('logout') }}" class="list-group-item list-group-item-action" 
                     onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();

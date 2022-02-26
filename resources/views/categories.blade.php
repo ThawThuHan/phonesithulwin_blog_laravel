@@ -1,6 +1,6 @@
 @extends('layouts/master')
 
-@section('title', "categories")
+@section('title', "Categories")
 
 @section('css')
     <link rel="stylesheet" href="css/categories.css">

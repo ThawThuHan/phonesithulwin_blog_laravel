@@ -198,7 +198,7 @@
             <label for="validationCustom04" class="form-label">Payment Method:</label>
             <div class="ms-3">
                 <div class="btn btn-info me-2 text-white" data-bs-toggle="modal" data-bs-target="#kbz">KBZ Pay</div>
-                <div class="btn btn-info me-2 text-white" data-bs-toggle="modal" data-bs-target="#wave">Wave Pay</div>
+                {{-- <div class="btn btn-info me-2 text-white" data-bs-toggle="modal" data-bs-target="#wave">Wave Pay</div> --}}
             </div>
             <div class="invalid-feedback">
                 Please select one of them
@@ -212,7 +212,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body d-flex justify-content-center align-items-center">
-                            <img src="{{asset("assets/images/kbzPay.jpg")}}" alt="" style="height: 300px">
+                            <img src="{{asset("assets/images/kbzpay.jpg")}}" alt="" style="height: 300px">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -222,7 +222,7 @@
                 </div>
             </div>
             <!-- Modal WAVE -->
-            <div class="modal" id="wave" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            {{-- <div class="modal" id="wave" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="form-group mb-3">
             <label for="validationCustom05" class="form-label">Payment screenshot:</label>

@@ -30,7 +30,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">CONTACT</a>
                 </li>
+                
             </ul>
+            @auth
+            <a class="nav-link" href="/admin-panel">Admin Panel</a>  
+            @endauth
             <form class="d-flex me-3" action="{{ route('search') }}" method="GET">
                 <input class="form-control rounded-pill me-2" name="query" type="search" placeholder="Search" aria-label="Search">
                 {{-- <i class="fa fa-search" id="search"></i> --}}

@@ -1,5 +1,7 @@
 @extends('layouts/master')
 
+@section('title', "Contact")
+
 @section('css')
     <link rel="stylesheet" href="css/contact.css">
 @endsection
@@ -22,10 +24,23 @@
                     </p>
                 </div>
             </div>
+            @if (session("success"))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>{{session("success")}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            @if (session("error"))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>{{session("error")}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
             <!-- Start Contact Form -->
             <div class="message-form container col-xs-12 col-md-8 col-lg-9">
 
-                <form action="_actions/sender.php" id="form" method="post" class="form">
+                <form action="" id="form" method="post" class="form">
+                    @csrf
                     <div class="mb-2 form-group ">
                         <label for="yname">
                             <h5>Enter Your Name</h5>

@@ -14,7 +14,7 @@ class CategoryController extends Controller
         if ($id) {
             $category = Category::find($id);
         }
-        $data = Category::all();
+        $data = Category::with('posts')->get();
         return view('admin_panel.categories', ["categories" => $data, "category" => $category,]);
     }
 

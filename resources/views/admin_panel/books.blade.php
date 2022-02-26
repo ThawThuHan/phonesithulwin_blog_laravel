@@ -44,7 +44,7 @@
                                     <h5 class="card-title d-inline"><b><?= $book->name ?></b></h5>
                                     <div class="float-end my-3"><?= $book->order_count ?><i class="fas fa-shopping-cart"></i></div>
                                     <p class="card-text mt-4 mb-2">
-                                        <?= $book->preview_content ?>
+                                        {{ mb_strimwidth($book->preview_content, 0, 100, '...', 'utf-8') }}
                                     </p>
                                     <span class="float-start my-3 text-danger"><?= $book->price ?></span>
                                     <span class="float-end my-3"><?= $book->created_at ?></span>

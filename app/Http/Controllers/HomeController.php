@@ -28,8 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         $books = Book::all();
-        $recentPosts = Post::latest()->paginate(9);
-        $popularPosts = Post::orderBy('view_count', 'desc')->take(4)->get();;
+        $recentPosts = Post::with('category')->latest()->paginate(9);
+        $popularPosts = Post::with('category')->orderBy('view_count', 'desc')->take(4)->get();;
         // dd($popularPosts);
         return view('home', [
             "books" => $books,
@@ -44,6 +44,8 @@ class HomeController extends Controller
         if (!$post) {
             throw new ModelNotFoundException(); // abort(404);
         }
+        $post->view_count += 1;
+        $post->update();
         $recentPosts = Post::latest()->take(5)->get();
         $popular = Post::orderBy('view_count', 'desc')->take(5)->get();
         $relatedPosts = Post::where("category_id", $post->category_id)->take(3)->get();
