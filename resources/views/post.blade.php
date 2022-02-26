@@ -37,7 +37,7 @@
             <!-- twitter -->
             <a href="https://twitter.com/intent/tweet?original_referer={{ Request::url() }}" class="fab fa-twitter fs-4 text-primary mx-1 my-2 text-decoration-none"></a>
             <!-- linkedin -->
-            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}" class="fab fa-linkedin fs-4"></a>
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}" class="fab fa-linkedin fs-4 text-decoration-none"></a>
             <!-- <a href="#" class="fab fa-pinterest fs-4 text-danger mx-1 my-2 text-decoration-none"></a> -->
         </div>
     </div>

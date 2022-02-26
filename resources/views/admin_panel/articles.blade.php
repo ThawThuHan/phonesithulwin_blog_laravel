@@ -9,6 +9,10 @@
         height: 150px;
         /* background-color: darkslateblue; */
     }
+
+    .myCustom-text {
+        word-wrap: break-word;
+    }
 </style>
 @endsection
     
@@ -41,12 +45,14 @@
                 $content = str_replace("\"", "\\\"", $post->content);
                 $content = strip_tags($content);
                 ?>
-                <div onclick="location.href='/admin-panel/articles/<?= $post->id ?>'" class="col-12 col-md-6 col-lg-3 myCustom-card p-3 border rounded">
-                    <img class="rounded" src="{{ URL("storage/post_images/".$post->image) }}" alt="">
-                    <h6 class="mt-2"><b><?= $post->title ?></b></h6>
-                    <div class="text-muted d-flex justify-content-between"><?= $post->created_at ?> <span class="text-end"><?= $post->view_count ?> <i class="fa fa-eye"></i></span></div>
-                    <div class="myCustom-text">
-                        <?= mb_strimwidth($content, 0, 100, '...', 'utf-8') ?>
+                <div onclick="location.href='/admin-panel/articles/<?= $post->id ?>'" class="col-12 col-md-6 col-lg-4 myCustom-card">
+                    <div class="m-1 p-2">
+                        <img class="border rounded" src="{{ URL("storage/post_images/".$post->image) }}" alt="">
+                        <h6 class="mt-2"><b><?= $post->title ?></b></h6>
+                        <div class="text-muted d-flex justify-content-between"><?= $post->created_at ?> <span class="text-end"><?= $post->view_count ?> <i class="fa fa-eye"></i></span></div>
+                        <div class="myCustom-text mt-2">
+                            <?= mb_strimwidth($content, 0, 100, '...', 'utf-8') ?>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
