@@ -60,7 +60,7 @@ class HomeController extends Controller
     // categories page
     public function categories()
     {
-        $categories = Category::all();
+        $categories = Category::with("posts")->get();
         return view("categories", [
             "categories" => $categories,
         ]);
