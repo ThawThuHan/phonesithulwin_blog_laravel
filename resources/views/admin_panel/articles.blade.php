@@ -17,15 +17,16 @@
 @endsection
     
 @section('content')
-<div class="col-10 px-2">
+<div class="col-12 col-md-10 px-2">
+    <div id="menuToggle" class="mt-2"><i class="fas fa-bars fs-3"></i></div>
     <div class="py-2 d-flex flex-wrap justify-content-between">
         <h3>Articles</h3>
-        <form class="d-flex" action="/admin-panel/articles/search">
-            <input class="form-control" type="text" name="query" placeholder="Search">
-            <button class="btn btn-primary ms-2">Search</button>
-        </form>
+        <button class="btn btn-primary" id="post-btn"><i class="fas fa-plus"></i> New Post</button>
     </div>
-    <button class="btn btn-primary" id="post-btn"><i class="fas fa-plus"></i> New Post</button>
+    <form class="d-flex" action="/admin-panel/articles/search">
+        <input class="form-control" type="text" name="query" placeholder="Search">
+        <button class="btn btn-primary ms-2">Search</button>
+    </form>
     @if (session("success"))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>New Post Added!</strong>

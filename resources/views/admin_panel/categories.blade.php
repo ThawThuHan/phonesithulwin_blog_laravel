@@ -3,10 +3,11 @@
 @section('title', 'Categories')
 
 @section('content')
-    <div class="col-10 px-2">
-        <div class="py-2">
-            <h3>Categories</h3>
-            <button class="btn btn-primary mt-2" id="new-category-btn"><i class="fas fa-plus"></i> new category</button>
+    <div class="col-12 col-md-10 px-2">
+        <div id="menuToggle" class="mt-2"><i class="fas fa-bars fs-3"></i></div>
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
+            <span class="fs-3">Categories</span>
+            <button class="btn btn-primary" id="new-category-btn"><i class="fas fa-plus"></i> new category</button>
         </div>
         <form id="new-category-form" class="col-6 py-2 d-none" action="/admin-panel/categories" method="POST" enctype="multipart/form-data">
             @csrf
@@ -61,9 +62,9 @@
                         <td><img src="{{ asset("storage/category_images/".$category->image) }}" alt="" style="width:80px; height:100px"></td>
                         <td><?= $postCount ?></td>
                         <td>
-                            <a href="/admin-panel/categories/{{ $category->id }}/articles" class="btn btn-primary"><i class="fas fa-eye"></i></a>
-                            <a href="/admin-panel/categories/<?= $category->id ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                            <a href="/admin-panel/categories/delete/{{ $category->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a href="/admin-panel/categories/{{ $category->id }}/articles" class="btn btn-primary mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
+                            <a href="/admin-panel/categories/<?= $category->id ?>" class="btn btn-secondary mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
+                            <a href="/admin-panel/categories/delete/{{ $category->id }}" class="btn btn-danger mb-1 mb-md-0"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

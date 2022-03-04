@@ -1,7 +1,8 @@
 @extends('layouts.admin_panel_master')
 
 @section('content')
-<div class="col-10 p-2">
+<div class="col-12 col-md-10 p-2">
+    <div id="menuToggle" class="mt-2"><i class="fas fa-bars fs-3"></i></div>
     <h3>Editing Book</h3>
     <a href="{{ route('admin_panel.books') }}">
         <--- Back</a>
@@ -19,7 +20,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
-                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation col-8">
+                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation col-12 col-md-8">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="title" class="form-label">Book Title:</label>

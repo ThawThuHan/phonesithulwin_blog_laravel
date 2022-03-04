@@ -4,7 +4,8 @@
 
 @section('content')
 
-<div class="col-10 p-2">
+<div class="col-12 col-md-10 p-2">
+    <div id="menuToggle" class="mt-2"><i class="fas fa-bars fs-3"></i></div>
     <h3>Editing Article</h3>
     @if (session('error'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">

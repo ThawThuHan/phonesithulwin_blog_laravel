@@ -11,12 +11,10 @@ import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
-import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
@@ -29,9 +27,12 @@ import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript.js';
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
 class Editor extends ClassicEditor {}
 
@@ -45,12 +46,10 @@ Editor.builtinPlugins = [
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
-	FontFamily,
 	FontSize,
 	Heading,
 	Image,
 	ImageCaption,
-	ImageInsert,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
@@ -63,9 +62,12 @@ Editor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	SimpleUploadAdapter,
+	Subscript,
+	Superscript,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Underline
 ];
 
 // Editor configuration.
@@ -79,7 +81,10 @@ Editor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
+			'underline',
 			'link',
+			'subscript',
+			'superscript',
 			'bulletedList',
 			'numberedList',
 			'|',
@@ -87,6 +92,7 @@ Editor.defaultConfig = {
 			'indent',
 			'|',
 			'imageUpload',
+			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
 			'undo',

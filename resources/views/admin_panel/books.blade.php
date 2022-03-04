@@ -11,15 +11,17 @@
 @endsection
 
 @section('content')
-<div class="col-10 px-2">
-    <div class="py-1 d-flex flex-wrap justify-content-between">
+<div class="col-12 col-md-10 px-2">
+    <div id="menuToggle" class="mt-2"><i class="fas fa-bars fs-3"></i></div>
+    <div class="my-2 d-flex flex-wrap justify-content-between align-items-center">
         <h3>Books</h3>
+        <button class="btn btn-primary" id="post-btn"><i class="fas fa-plus"></i> New Book</button>
         {{-- <form class="d-flex" action="">
             <input class="form-control" type="text" placeholder="Search">
             <button class="btn btn-primary ms-2">Search</button>
         </form> --}}
     </div>
-    <button class="btn btn-primary mb-3" id="post-btn"><i class="fas fa-plus"></i> New Book</button>
+    
     @if (session('info'))
     <div class="alert alert-info alert-dismissible fade show" role="alert">
       <strong>{{ session('info') }}</strong>
