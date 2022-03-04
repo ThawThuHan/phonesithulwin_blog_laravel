@@ -94,6 +94,6 @@
     </div>
 @endsection
 
-@section('script_src')
+@section('script')
     <script src="js/contact.js"></script>
 @endsection

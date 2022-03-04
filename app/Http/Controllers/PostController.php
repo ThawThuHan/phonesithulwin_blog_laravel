@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function getAll()
     {
-        $posts = Post::with('category')->get();
+        $posts = Post::with('category')->latest()->get();
         $categories = Category::all();
         return view("admin_panel.articles", ["posts" => $posts, "categories" => $categories]);
     }

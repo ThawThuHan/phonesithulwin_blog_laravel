@@ -82,7 +82,7 @@
 @endsection
 
 @section('script')
-<script src="{{ asset("packages/ckeditor5-cs/build/ckeditor.js") }}"></script>
+<script src="{{ asset("packages/my_ckeditor/build/ckeditor.js") }}"></script>
 <script>
     ClassicEditor.contentsCss = "css/content.css";
     // ClassicEditor.allowedContent = true;
@@ -91,6 +91,10 @@
         plugin: ['ImageResizeEditing', 'ImageResizeHandles', 'SimpleImageUploader'],
         simpleUpload: {
             uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+        },
+        mediaEmbed: {
+            previewsInData:true,
+            // elementName: 'o-embed',
         },
         image: {
             resizeOptions: [
@@ -126,7 +130,19 @@
                 },
             ],
             toolbar: [ 'imageStyle:alignBlockRight', 'imageStyle:alignCenter', 'imageStyle:alignBlockLeft', '|', 'toggleImageCaption', 'imageTextAlternative', 'resizeImage']
-        }
+        },
+        // fontSize: {
+        //     options: [
+        //         9,
+        //         11,
+        //         13,
+        //         'default',
+        //         17,
+        //         19,
+        //         21,
+        //         23,
+        //     ]
+        // },
     });
 
     const postView = document.querySelector("#post-view");

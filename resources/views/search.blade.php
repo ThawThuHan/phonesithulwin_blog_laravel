@@ -21,27 +21,8 @@
         @if (count($posts) > 0)
             <div class="row mb-0 mb-md-4">
             @foreach ($posts as $post)
-                <?php
-                $content = str_replace("\"", "\\\"", $post->content);
-                $content = strip_tags($content);
-                ?>
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <a href="/posts/{{ $post->id }}" class="text-decoration-none text-dark blog">
-                        <div class="card blogShadow">
-                            <img src="{{ URL("storage/post_images/".$post->image) }}" class="card-img-top" alt="...">
-                            <div class="card-body border-bottom">
-                                <h5 class="card-title d-inline">{{ $post->title }}</h5>
-                                <div class="text-muted">
-                                    <span>{{ $post->created_at }}</span>
-                                    <span class="card-subtitle float-end"><i class="fas fa-eye"></i> {{ $post->view_count }}</span>
-                                </div>
-                                <p class="card-text mt-4">
-                                    {{ mb_strimwidth($content, 0, 100, '...', 'utf-8') }}
-                                </p>
-                                <a href="/posts/{{ $post->id }}" class="btn btn-info mt-2 float-end text-white">Read more</a>
-                            </div>
-                        </div>
-                    </a>
+                    <x-post-card :post="$post" />
                 </div>
             @endforeach
         @else

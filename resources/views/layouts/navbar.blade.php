@@ -16,19 +16,19 @@
             </div> -->
             <ul class="navbar-nav mx-auto mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">HOME</a>
+                    <a class="nav-link" href="/home">ပင်မစာမျက်နှာ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#book">BOOKS</a>
+                    <a class="nav-link" href="/#book">ထွက်ရှိပြီးစာအုပ်များ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories">CATEGORIES</a>
+                    <a class="nav-link" href="/categories">ကျန်းမာရေးကဏ္ဍများ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">ABOUT</a>
+                    <a class="nav-link" href="/about">ကျွန်တော့်အကြောင်း</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">CONTACT</a>
+                    <a class="nav-link" href="/contact">ဆက်သွယ်ရန်</a>
                 </li>
                 
             </ul>
@@ -36,7 +36,7 @@
             <a class="nav-link" href="/admin-panel">Admin Panel</a>  
             @endauth
             <form class="d-flex me-3" action="{{ route('search') }}" method="GET">
-                <input class="form-control rounded-pill me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control rounded-pill me-2" name="query" type="search" placeholder="ရှာဖွေရန်" aria-label="Search">
                 {{-- <i class="fa fa-search" id="search"></i> --}}
                 <button class="btn btn-outline-info" type="submit">Search</button>
             </form>

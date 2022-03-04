@@ -40,10 +40,10 @@
                             <span class="d-none d-md-inline">Orders</span>
                             <span class="badge rounded-pill bg-danger float-end">{{ $orders }}</span>
                         </a>
-                        <a href="admin_panel_users.php" class="list-group-item list-group-item-action">
+                        {{-- <a href="admin_panel_users.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>
                             <span class="d-none d-md-inline">Users</span>
-                        </a>
+                        </a> --}}
                     </ul>
                 </div>
                 <ul class="list-group px-1 px-md-3 py-3">

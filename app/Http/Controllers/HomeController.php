@@ -46,8 +46,8 @@ class HomeController extends Controller
         }
         $post->view_count += 1;
         $post->update();
-        $recentPosts = Post::latest()->take(5)->get();
-        $popular = Post::orderBy('view_count', 'desc')->take(5)->get();
+        $recentPosts = Post::inRandomOrder()->latest()->take(10)->get();
+        $popular = Post::orderBy('view_count', 'desc')->take(10)->get();
         $relatedPosts = Post::where("category_id", $post->category_id)->take(3)->get();
         return view('post', [
             "current" => $post,
