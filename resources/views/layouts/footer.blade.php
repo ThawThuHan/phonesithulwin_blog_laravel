@@ -3,6 +3,9 @@
   <i class="fas fa-chevron-up rounded-circle float-end fs-2 border px-2 py-1 btn btn-outline-danger" id="up"></i>
 </div>
 
+<!-- ad -->
+<img src="https://via.placeholder.com/728x50.png?text=Your+Ad+Here" class="adImg" alt="">
+
 <!-- footer -->
 <div class="container-fluid mt-4 d-flex align-items-center justify-content-center gap-5 border-top" id="footer">
   <a href="https://www.facebook.com/pstlwin/" class="fab fa-facebook fs-2 text-primary mx-1 my-2 text-decoration-none"></a>

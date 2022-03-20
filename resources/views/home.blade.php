@@ -4,6 +4,8 @@
 
 @section('css')
     <link rel="stylesheet" href="{{URL::asset("css/index.css")}}">
+    <link rel="stylesheet" href="{{URL::asset("css/adSlider.css")}}">
+    <link rel="stylesheet" href="{{URL::asset("css/swiper.bundle.min.css")}}">
 @endsection
 
 @section('content')
@@ -32,6 +34,27 @@
         </div>
     </div>
 </div>
+
+<!-- ad slider -->
+    <div class="container mt-5" id="primary">
+        <div class="swiper mySwiper1">
+            <div class="swiper-wrapper mb-3">
+                <div class="swiper-slide">
+                    <img src="assets/images/ezgif.com-gif-maker (1).gif" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/book1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/book2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                   <img src="assets/images/book3.jpg" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination2"></div>
+        </div>
+    </div>
 
 <div class="container mt-5">
     <h2 class="mb-4 sub-title">Recent Posts</h2>

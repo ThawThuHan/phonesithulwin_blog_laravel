@@ -31,6 +31,8 @@
 
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/up.js"></script>
+    <script src="js/swiper.bundle.min.js"></script>
+    <script src="js/adSlider.js"></script>
     @yield("script")
 </body>
 </html>

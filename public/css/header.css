@@ -25,3 +25,9 @@
     right: 100%; */
     transform: translate(-150%, 25%);
 }
+
+/* footer */
+.adImg{
+    width: 100%;
+    object-fit: cover;
+}
