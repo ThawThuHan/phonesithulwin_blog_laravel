@@ -9,6 +9,11 @@
             <img src="{{ asset("assets/images/logo.jpg") }}" alt="" id="logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- darkLight toggle -->
+            <!-- <div class="form-check form-switch mx-5">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Dark Switch</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            </div> -->
             <ul class="navbar-nav mx-auto mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="/home">ပင်မစာမျက်နှာ</a>
@@ -23,7 +28,7 @@
                     <a class="nav-link" href="/about">ကျွန်တော့်အကြောင်း</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">ကြော်ငြာရန်</a>
+                    <a class="nav-link" href="/contact">ဆက်သွယ်ရန်</a>
                 </li>
                 
             </ul>
