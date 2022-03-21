@@ -12,6 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Facebook\Facebook;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,12 @@ Route::post('/phone-stl', [LoginController::class, "login"])->name("new-login");
 
 Route::get('/new-user', [RegisterController::class, "showRegistrationForm"]);
 Route::post('/new-user', [RegisterController::class, "register"])->name("register");
+
+Route::get('/t', function (Facebook $fb) {
+    $fb->setDefaultAccessToken(config('facebook.access_token'));
+    $respone = $fb->get('/me?fields=engagement,fan_count,followers_count,app_id,posts{shares}')->getGraphUser();
+    dd($respone);
+});
 
 
 Route::middleware('auth')->group(function () {
