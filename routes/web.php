@@ -9,9 +9,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
-use App\Models\Order;
+use Google\Cloud\Storage\StorageClient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Google\Analytics\Data\V1beta\BetaAnalyticsDataClient;
+use Facebook\Facebook;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,13 @@ Route::post('/phone-stl', [LoginController::class, "login"])->name("new-login");
 
 Route::get('/new-user', [RegisterController::class, "showRegistrationForm"]);
 Route::post('/new-user', [RegisterController::class, "register"])->name("register");
+
+Route::get('/testing', function (Facebook $fb) {
+    // dd(config('facebook.config.access_token'));
+    $fb->setDefaultAccessToken(config('facebook.config.access_token'));
+    $respone = $fb->get('/me?fields=engagement,fan_count,followers_count,app_id,posts{shares}')->getGraphUser();
+    dd($respone['posts']);
+});
 
 
 Route::middleware('auth')->group(function () {
