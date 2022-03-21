@@ -54,6 +54,17 @@
 
                     <div class=" mb-2 form-group ">
                         <label for="email">
+                            <h5>Enter your phone number</h5>
+                        </label>
+                        <input type="email" name="phone" class="form-control" id="yname" placeholder="">
+
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class=" mb-2 form-group ">
+                        <label for="email">
                             <h5>Enter your email</h5>
                         </label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="ဥပမာ- khinmaungtun1990@gmail.com">

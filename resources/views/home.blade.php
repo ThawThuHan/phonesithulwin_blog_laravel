@@ -95,6 +95,22 @@
     </div>
 </div>
 
+<!-- active users -->
+<div class="container d-flex justify-content-between">
+    <div class="btn btn-primary w-25 fs-5">
+        <div class="fs-3">130,000+</div>
+        <div class="fs-6">Weekly Website Visitors</div>
+    </div>
+    <div class="btn btn-primary w-25 fs-5">
+        <div class="fs-3">1.5 millions+</div>
+        <div class="fs-6">Facebook Followers</div>
+    </div>
+    <div class="btn btn-primary w-25">
+        <div class="fs-3">12,000+</div>
+        <div class="fs-6">Daily Website Visitors</div>
+    </div>
+</div>
+
 <!-- books -->
 <div class="container mt-5" id="book">
     <div class="container-fluid my-3">
