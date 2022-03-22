@@ -95,6 +95,21 @@
     </div>
 </div>
 
+<div class="container d-flex justify-content-evenly">
+    <div class="btn btn-primary" style="width: 25%;">
+        <div id="count" class="fs-3">130,000+</div>
+        <div>Total Website Visitors</div>
+    </div>
+    <div class="btn btn-primary" style="width: 25%;">
+        <div class="fs-3">{{ App\Custom\MyClass::number_format_short($follower) }}</div>
+        <div>Facebook Followers</div>
+    </div>
+    <div class="btn btn-primary" style="width: 25%;">
+        <div class="fs-3">{{ App\Custom\MyClass::number_format_short($engagement) }}</div>
+        <div>Total Engagement</div>
+    </div>
+</div>
+
 <!-- books -->
 <div class="container mt-5" id="book">
     <div class="container-fluid my-3">

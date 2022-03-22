@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Facebook\Facebook;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Facebook $fb)
     {
+        $fb->setDefaultAccessToken(config('facebook.config.default_access_token'));
+        $respone = $fb->get('/me?fields=engagement,fan_count,followers_count,app_id,posts{shares}')->getGraphUser();
+        $follower = $respone['followers_count'];
+        $engagement = $respone['engagement']["count"];
+
         $books = Book::all();
         $recentPosts = Post::with('category')->latest()->paginate(9);
         $popularPosts = Post::with('category')->orderBy('view_count', 'desc')->take(4)->get();;
@@ -35,6 +41,8 @@ class HomeController extends Controller
             "books" => $books,
             "recentPosts" => $recentPosts,
             "popularPosts" => $popularPosts,
+            "follower" => $follower,
+            "engagement" => $engagement,
         ]);
     }
 

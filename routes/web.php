@@ -49,7 +49,7 @@ Route::get('/new-user', [RegisterController::class, "showRegistrationForm"]);
 Route::post('/new-user', [RegisterController::class, "register"])->name("register");
 
 Route::get('/t', function (Facebook $fb) {
-    $fb->setDefaultAccessToken(config('facebook.access_token'));
+    $fb->setDefaultAccessToken(config('facebook.config.default_access_token'));
     $respone = $fb->get('/me?fields=engagement,fan_count,followers_count,app_id,posts{shares}')->getGraphUser();
     dd($respone);
 });
