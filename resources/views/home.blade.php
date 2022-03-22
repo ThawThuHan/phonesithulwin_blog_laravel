@@ -97,15 +97,15 @@
 
 <div class="container d-flex justify-content-evenly">
     <div class="btn btn-primary" style="width: 25%;">
-        <div id="count" class="fs-3">130,000+</div>
+        <div><span id="count" class="counter fs-3" data-target=""></span><span class="fs-3">+</span></div>
         <div>Total Website Visitors</div>
     </div>
     <div class="btn btn-primary" style="width: 25%;">
-        <div class="fs-3">{{ App\Custom\MyClass::number_format_short($follower) }}</div>
+        <div><span id="count2" data-target2="106000" class="fs-3">106000</span><span class="fs-3">+</span></div>
         <div>Facebook Followers</div>
     </div>
     <div class="btn btn-primary" style="width: 25%;">
-        <div class="fs-3">{{ App\Custom\MyClass::number_format_short($engagement) }}</div>
+        <div><span id="count2" data-target2="106000" class="fs-3">106000</span><span class="fs-3">+</span></div>
         <div>Total Engagement</div>
     </div>
 </div>

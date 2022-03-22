@@ -33,7 +33,7 @@
     <script src="/js/up.js"></script>
     <script src="js/swiper.bundle.min.js"></script>
     <script src="js/adSlider.js"></script>
-    <script src="js/view_count.js"></script>
+    <script src="js/counter.js"></script>
     @yield("script")
 </body>
 </html>
