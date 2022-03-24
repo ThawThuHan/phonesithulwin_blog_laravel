@@ -51,7 +51,7 @@ Route::post('/new-user', [RegisterController::class, "register"])->name("registe
 Route::get('/t', function (Facebook $fb) {
     $fb->setDefaultAccessToken(config('facebook.access_token'));
     $respone = $fb->get('/me?fields=engagement,fan_count,followers_count,app_id,posts{shares}')->getGraphUser();
-    dd($respone);
+    dd($respone['engagement']['count']);
 });
 
 
