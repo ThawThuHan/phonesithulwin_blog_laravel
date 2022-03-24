@@ -4,7 +4,9 @@
 </div>
 
 <!-- ad -->
-<img src="https://via.placeholder.com/728x50.png?text=Your+Ad+Here" class="adImg" alt="">
+<div class="container">
+    <img src="/assets/images/text.gif" class="adImg" alt="">
+</div>
 
 <!-- footer -->
 <div class="container-fluid mt-4 d-flex align-items-center justify-content-center gap-5 border-top" id="footer">

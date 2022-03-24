@@ -33,6 +33,17 @@
     box-shadow: 0px 0px 3px black;
 }
 
+.show-counter>div {
+    width: 25%;
+}
+
+@media (max-width: 427px) {
+    .show-counter>div {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
 /* @keyframes morph {
     0% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
