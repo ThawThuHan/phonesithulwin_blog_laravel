@@ -4,7 +4,7 @@
 </div>
 
 <!-- ad -->
-<div class="container">
+<div class="container mt-2">
     <img src="/assets/images/text.gif" class="adImg" alt="">
 </div>
 
