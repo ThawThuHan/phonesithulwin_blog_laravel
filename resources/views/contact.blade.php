@@ -17,6 +17,9 @@
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper mb-3">
                     <div class="swiper-slide">
+                        <img src="assets/images/carousel5.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
                         <img src="assets/images/carousel1.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
