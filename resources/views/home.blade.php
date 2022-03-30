@@ -40,7 +40,7 @@
         <div class="swiper mySwiper1">
             <div class="swiper-wrapper mb-3">
                 <div class="swiper-slide">
-                    <img src="assets/images/ezgif.com-gif-maker (1).gif" alt="">
+                    <img src="assets/images/post ad.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
                     <img src="assets/images/book1.jpg" alt="">
