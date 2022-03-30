@@ -9,6 +9,7 @@
 <body>
     <h3>Name - {{$details['name']}}</h3>
     <h4>Email - {{$details['email']}}</h4>
+    <h4>Phone - {{ $details['phone'] }}</h4>
     <p>Message - {{$details['messages']}}</p>
 </body>
 </html>

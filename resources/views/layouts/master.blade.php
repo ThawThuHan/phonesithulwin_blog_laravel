@@ -9,10 +9,10 @@
     <title>@yield('title')</title>
 
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
-    <link rel="stylesheet" href="{{URL::asset("css/swiper.bundle.min.css")}}">
-    <link rel="stylesheet" href="{{ asset("css/fontawesome.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/unicode.css") }}">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper.bundle.min.css">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/unicode.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/blog-card.css">
     @yield('css')
