@@ -5,7 +5,6 @@
 @section('css')
     <link rel="stylesheet" href="{{URL::asset("css/index.css")}}">
     <link rel="stylesheet" href="{{URL::asset("css/adSlider.css")}}">
-    <link rel="stylesheet" href="{{URL::asset("css/swiper.bundle.min.css")}}">
 @endsection
 
 @section('content')
@@ -164,4 +163,8 @@
     </div>
 </div>
     
+@endsection
+
+@section('script')
+<script src="js/adSlider.js"></script>
 @endsection

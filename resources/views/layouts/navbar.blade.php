@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/about">ကျွန်တော့်အကြောင်း</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">ဆက်သွယ်ရန်</a>
+                    <a class="nav-link" href="/contact">ကြော်ငြာစုံစမ်းရန်</a>
                 </li>
                 
             </ul>

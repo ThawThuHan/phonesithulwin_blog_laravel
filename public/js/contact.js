@@ -1,6 +1,7 @@
 const form = document.getElementById('form')
 const yname = document.getElementById('yname')
 const email = document.getElementById('email')
+const yphone = document.getElementById('phone');
 const messages = document.getElementById('messages')
 
 form.addEventListener('submit', function(e){
@@ -15,6 +16,7 @@ form.addEventListener('submit', function(e){
 function checkInputs(){
     const ynameValue = yname.value.trim();
     const emailValue = email.value.trim();
+    const yphoneValue = yphone.value.trim();
     const messagesValue = messages.value;
     let error = false;
 
@@ -23,12 +25,10 @@ function checkInputs(){
         error = true;
     }else {
         setSuccessFor(yname);
-    }
-
-    
+    }    
 
     if(emailValue === '') {
-		setErrorFor(email, 'သင်၏ အီးလ်မေး ကိုထည့်ရန် လိုအပ်ပါသည်');
+		setErrorFor(email, 'သင်၏ အီးလ်မေးကိုထည့်ရန် လိုအပ်ပါသည်');
         error = true;
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'သင်၏ အီးလ်မေးမှာ မှားယွင်းနေပါသည်');
@@ -36,6 +36,13 @@ function checkInputs(){
 	} else {
 		setSuccessFor(email);
 	}
+
+    if (yphoneValue === ''){
+        setErrorFor(yphone,'သင်၏ ဖုန်းနံပါတ်ကိုထည့်ရန် လိုအပ်ပါသည်');
+        error = true;
+    }else {
+        setSuccessFor(yphone);
+    }
 
    if (messagesValue === ''){
        setErrorFor(messages,'သင် ပေးပို့လိုသောအကြောင်းအရာကို ထည့်ရန်လိုအပ်ပါသည်');

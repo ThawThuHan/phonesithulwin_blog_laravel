@@ -17,7 +17,7 @@ function updateVisitCount() {
                 const increment = target / 200;
                 if (c < target) {
                     counter.innerText = Math.ceil(c + increment);
-                    setTimeout(updateCounter, 10)
+                    setTimeout(updateCounter, 20)
                 }
             }
             updateCounter();
@@ -37,7 +37,7 @@ count2s.forEach(count2 => {
 
         if (c2 < target2) {
             count2.innerText = Math.ceil(c2 + increment2);
-            setTimeout(update, 15)
+            setTimeout(update, 25)
         }
     }
     update();

@@ -10,6 +10,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{URL::asset("css/swiper.bundle.min.css")}}">
     <link rel="stylesheet" href="{{ asset("css/fontawesome.min.css") }}">
     <link rel="stylesheet" href="{{ asset("css/unicode.css") }}">
     <link rel="stylesheet" href="/css/header.css">
@@ -32,7 +33,6 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/up.js"></script>
     <script src="js/swiper.bundle.min.js"></script>
-    <script src="js/adSlider.js"></script>
     <script src="js/counter.js"></script>
     @yield("script")
 </body>
