@@ -13,6 +13,9 @@
 @section('title', $current->title)
 
 @section('content')
+<div class="container mb-2">
+    <img src="/assets/images/text.gif" class="adImg" alt="">
+</div>
 <div class="container">
     <div class="row">
         <div class="col-9">
@@ -77,6 +80,9 @@
         </div>
     </div>
 
+    <div class="container">
+        <img src="/assets/images/text.gif" class="adImg" alt="">
+    </div>
     <!-- related posts -->
     <h2 class="mx-2 mt-5">Related Posts</h2>
     <div class="row mx-2 mt-3">

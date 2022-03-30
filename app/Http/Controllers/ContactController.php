@@ -13,6 +13,7 @@ class ContactController extends Controller
         $details = [
             "name" => $request->yname,
             "email" => $request->email,
+            "phone" => $request->phone,
             "messages" => $request->messages,
         ];
         try {

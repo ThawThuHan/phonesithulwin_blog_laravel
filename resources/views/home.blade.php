@@ -4,6 +4,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{URL::asset("css/index.css")}}">
+    <link rel="stylesheet" href="{{URL::asset("css/adSlider.css")}}">
 @endsection
 
 @section('content')
@@ -33,6 +34,27 @@
     </div>
 </div>
 
+<!-- ad slider -->
+    <div class="container mt-5" id="primary">
+        <div class="swiper mySwiper1">
+            <div class="swiper-wrapper mb-3">
+                <div class="swiper-slide">
+                    <img src="assets/images/post ad.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/book1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/book2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                   <img src="assets/images/book3.jpg" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination2"></div>
+        </div>
+    </div>
+
 <div class="container mt-5">
     <h2 class="mb-4 sub-title">Recent Posts</h2>
     <div class="row mb-0 mb-md-4">
@@ -56,10 +78,13 @@
                 </div> --}}
             </div>
         @endforeach
-        <div>{{ $recentPosts->links() }}</div>
+        <div>{{ $recentPosts->onEachSide(1)->links() }}</div>
     </div>
 </div>
 
+<div class="container">
+    <img src="/assets/images/text.gif" class="adImg" alt="">
+</div>
 <!-- popular posts -->
 <div class="container mt-3">
     <h2 class="mb-4 sub-title">Popular Posts</h2>
@@ -72,8 +97,26 @@
     </div>
 </div>
 
+<div class="container d-flex flex-wrap justify-content-evenly mb-3 show-counter">
+    <div class="btn btn-primary" >
+        <div><span id="count" class="counter fs-2" data-target=""></span><span class="fs-2">+</span></div>
+        <div>Total Website Visitors</div>
+    </div>
+    <div class="btn btn-primary">
+        <div><span id="count2" data-target2="106000" class="fs-2">106000</span><span class="fs-2">+</span></div>
+        <div>Facebook Followers</div>
+    </div>
+    <div class="btn btn-primary">
+        <div><span id="count2" data-target2="106000" class="fs-2">106000</span><span class="fs-2">+</span></div>
+        <div>Total Engagement</div>
+    </div>
+</div>
+
+<div class="container">
+    <img src="/assets/images/text.gif" class="adImg" alt="">
+</div>
 <!-- books -->
-<div class="container mt-5" id="book">
+<div class="container mt-3" id="book">
     <div class="container-fluid my-3">
         <i class="fas fa-book fs-2 m-0"></i>
         <!-- <i class="fas fa-book-medical"></i> -->
@@ -120,4 +163,8 @@
     </div>
 </div>
     
+@endsection
+
+@section('script')
+<script src="js/adSlider.js"></script>
 @endsection

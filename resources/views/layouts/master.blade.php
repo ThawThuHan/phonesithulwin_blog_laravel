@@ -9,9 +9,10 @@
     <title>@yield('title')</title>
 
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/fontawesome.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/unicode.css") }}">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper.bundle.min.css">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/unicode.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/blog-card.css">
     @yield('css')
@@ -31,6 +32,8 @@
 
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/up.js"></script>
+    <script src="js/swiper.bundle.min.js"></script>
+    <script src="js/counter.js"></script>
     @yield("script")
 </body>
 </html>
